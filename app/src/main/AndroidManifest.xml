@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="hu.intellicode.savethreelivestoday"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name="hu.intellicode.savethreelivestoday.ui.main.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="hu.intellicode.savethreelivestoday.ui.map.MapActivity"/>
+        <activity android:name="hu.intellicode.savethreelivestoday.ui.onboard.OnBoardActivity"/>
+        <activity android:name="hu.intellicode.savethreelivestoday.ui.settings.SettingsActivity"/>
+        <activity android:name="hu.intellicode.savethreelivestoday.ui.user.UserActivity"/>
+        <activity android:name="hu.intellicode.savethreelivestoday.ui.info.InfoActivity"/>
+        <activity android:name="hu.intellicode.savethreelivestoday.ui.statistics.StatisticsActivity"/>
+    </application>
+
+</manifest>
