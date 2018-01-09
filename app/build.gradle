@@ -27,7 +27,6 @@ dependencies {
     testImplementation "junit:junit:$rootProject.ext.junitVersion"
     androidTestImplementation "com.android.support.test:runner:$rootProject.ext.runnerVersion"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.ext.espressoVersion"
-    // maps and location
-    implementation "com.google.android.gms:play-services-location:$rootProject.ext.playServicesVersion"
+    // maps
     implementation "com.google.android.gms:play-services-maps:$rootProject.ext.playServicesVersion"
 }
