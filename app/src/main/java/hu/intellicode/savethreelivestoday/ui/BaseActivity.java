@@ -13,9 +13,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
+import com.google.android.gms.maps.model.LatLng;
+
 import hu.intellicode.savethreelivestoday.R;
 import hu.intellicode.savethreelivestoday.ui.info.InfoActivity;
 import hu.intellicode.savethreelivestoday.ui.main.MainActivity;
+import hu.intellicode.savethreelivestoday.ui.map.DonationPoint;
 import hu.intellicode.savethreelivestoday.ui.map.MapActivity;
 import hu.intellicode.savethreelivestoday.ui.settings.SettingsActivity;
 import hu.intellicode.savethreelivestoday.ui.statistics.StatisticsActivity;
@@ -73,7 +76,14 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
                 break;
             }
             case R.id.menu_drawer_map: {
-                startActivity(new Intent(this, MapActivity.class));
+                // ha csak egy véradóhely megjelenítése a feladat, akkor azt az intentben kell (lehet) átadni
+                /*
+                DonationPoint dummyDonationPoint = new DonationPoint();
+                dummyDonationPoint.setName("Országos vérellátó szolgálat");
+                dummyDonationPoint.setAddress("Budapest, Karolina út 19-21, 1113");
+                dummyDonationPoint.setCoordinates(47.4796092,19.0288294);*/
+                Intent i = MapActivity.getStarterIntent(this, null);
+                startActivity(i);
                 break;
             }
             case R.id.menu_drawer_user: {
