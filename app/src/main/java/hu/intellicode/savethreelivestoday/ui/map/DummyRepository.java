@@ -16,7 +16,7 @@ class DummyRepository {
         DonationPoint p2 = new DonationPoint();
         p2.setName("Péterfy Sándor utcai Területi Vérellátó");
         p2.setAddress("Budapest, Péterfy Sándor u. 14, 1076");
-        p2.setCoordinates(47.5258797,18.9263651);
+        p2.setCoordinates(47.5018107,19.0762466);
 
         DonationPoint p3 = new DonationPoint();
         p3.setName("Magyar Vöröskereszt Székház");
