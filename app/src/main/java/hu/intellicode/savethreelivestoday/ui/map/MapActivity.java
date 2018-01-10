@@ -82,7 +82,7 @@ public class MapActivity extends BaseActivity implements
             if (savedInstanceState.containsKey(KEY_DONATION_POINT)) {
                 singlePointMode = true;
                 donationPoints = new ArrayList<>(1);
-                donationPoints.add((DonationPoint) savedInstanceState.getSerializable(KEY_DONATION_POINT));
+                donationPoints.add((DonationPoint) savedInstanceState.getParcelable(KEY_DONATION_POINT));
                 Log.d(TAG, "Donation point set from savedInstanceState");
             }
             if (savedInstanceState.containsKey(KEY_SELECTED_DONATION_POINT_INDEX)) {
@@ -96,7 +96,7 @@ public class MapActivity extends BaseActivity implements
                 // activity started for the first time in single point mode
                 singlePointMode = true;
                 donationPoints = new ArrayList<>(1);
-                donationPoints.add((DonationPoint) getIntent().getSerializableExtra(EXTRA_DONATION_POINT));
+                donationPoints.add((DonationPoint) getIntent().getParcelableExtra(EXTRA_DONATION_POINT));
                 indexOfSelectedDonationPoint = 0;
                 //selectedDonationPoint = donationPoints.get(0);
                 Log.d(TAG, "Donation point set from intent");
@@ -180,7 +180,7 @@ public class MapActivity extends BaseActivity implements
         outState.putInt(KEY_SELECTED_DONATION_POINT_INDEX, indexOfSelectedDonationPoint);
         outState.putParcelable(KEY_MAP_CAMERA_POSITION, googleMap.getCameraPosition());
         if (donationPoints.size() == 1) {
-            outState.putSerializable(KEY_DONATION_POINT, donationPoints.get(0));
+            outState.putParcelable(KEY_DONATION_POINT, donationPoints.get(0));
         }
     }
 
