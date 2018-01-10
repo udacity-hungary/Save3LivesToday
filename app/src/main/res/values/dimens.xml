@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- MAIN ACTIVITY'S ATTRIBUTES -->
+    <dimen name="day_counter_view_size">144dp</dimen>
+    <dimen name="day_counter_holder_padding">16dp</dimen>
+    <dimen name="day_counter_number_text_size">20sp</dimen>
+    <dimen name="day_counter_message_padding">24dp</dimen>
+    <dimen name="day_counter_message_text_size">20sp</dimen>
+    <dimen name="location_list_header_padding">16dp</dimen>
+    <!-- END -->
+
+    <dimen name="list_separator_height">4dp</dimen>
+</resources>
