@@ -5,7 +5,7 @@ import android.support.v7.preference.PreferenceFragmentCompat;
 
 import hu.intellicode.savethreelivestoday.R;
 
-public class UserSettingFragment extends PreferenceFragmentCompat {
+public class UserDetailsFragment extends PreferenceFragmentCompat {
 
     @Override
     public void onCreatePreferences(Bundle bundle, String s) {
