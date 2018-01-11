@@ -15,6 +15,7 @@
     <string name="day_counter_message_waiting">%1$d days till the next blood donation</string>
     <string name="day_counter_message_negative">You cannot donate blood</string>
     <string name="location_list_header">Blood donation locations where you\'re needed:</string>
+    <string name="empty_list_message">There are no donation points nearby</string>
     <!-- END OF MAIN ACTIVITY -->
 
 </resources>

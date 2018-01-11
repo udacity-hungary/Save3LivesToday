@@ -6,7 +6,7 @@ import android.os.Parcelable;
 import com.google.android.gms.maps.model.LatLng;
 
 /**
- * Simple POJO with the data required by MapActivity
+ * Simple POJO with the data required by MapActivity and MainActivity
  */
 public class DonationPoint implements Parcelable {
 

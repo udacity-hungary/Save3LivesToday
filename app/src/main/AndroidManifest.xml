@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="hu.intellicode.savethreelivestoday"
-          xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="hu.intellicode.savethreelivestoday">
 
     <application
         android:allowBackup="true"
@@ -11,23 +11,22 @@
         android:theme="@style/AppTheme">
         <activity android:name="hu.intellicode.savethreelivestoday.ui.main.MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="hu.intellicode.savethreelivestoday.ui.map.MapActivity"/>
-        <activity android:name="hu.intellicode.savethreelivestoday.ui.onboard.OnBoardActivity"/>
-        <activity android:name="hu.intellicode.savethreelivestoday.ui.settings.SettingsActivity"/>
-        <activity android:name="hu.intellicode.savethreelivestoday.ui.user.UserActivity"/>
-        <activity android:name="hu.intellicode.savethreelivestoday.ui.info.InfoActivity"/>
-        <activity android:name="hu.intellicode.savethreelivestoday.ui.statistics.StatisticsActivity"/>
+        <activity android:name="hu.intellicode.savethreelivestoday.ui.map.MapActivity" />
+        <activity android:name="hu.intellicode.savethreelivestoday.ui.onboard.OnBoardActivity" />
+        <activity android:name="hu.intellicode.savethreelivestoday.ui.settings.SettingsActivity" />
+        <activity android:name="hu.intellicode.savethreelivestoday.ui.user.UserActivity" />
+        <activity android:name="hu.intellicode.savethreelivestoday.ui.info.InfoActivity" />
+        <activity android:name="hu.intellicode.savethreelivestoday.ui.statistics.StatisticsActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyB7HlSSKVlYCVLD_f4RnctFEso4TzX44uw"/>
+            android:value="AIzaSyB7HlSSKVlYCVLD_f4RnctFEso4TzX44uw" />
 
     </application>
-
 
 </manifest>
