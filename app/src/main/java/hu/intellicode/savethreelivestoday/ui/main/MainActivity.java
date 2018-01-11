@@ -9,9 +9,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 import hu.intellicode.savethreelivestoday.R;
 import hu.intellicode.savethreelivestoday.ui.BaseActivity;
@@ -51,7 +54,7 @@ public class MainActivity extends BaseActivity {
             dayCounterMessage.setText(getString(R.string.day_counter_message_positive));
         } else if (daysToWait > 0) {
             dayCounterMessage.setText(getString(R.string.day_counter_message_waiting, daysToWait));
-            dayCounterNumber.setText(daysToWait);
+            dayCounterNumber.setText(String.valueOf(daysToWait));
             dayCounterNumber.setVisibility(View.VISIBLE);
         } else {
             dayCounterMessage.setText(getString(R.string.day_counter_message_negative));
@@ -59,15 +62,21 @@ public class MainActivity extends BaseActivity {
     }
 
     private int getDaysToWait(int daysSinceLastDonation, int daysSinceLastPlasmapheresis) {
+        List<Integer> daysToWait = new ArrayList<>();
         if (!isBelowLimitPerYear()) {
-            return getDaysTillNextYear();
-        } else if (daysSinceLastPlasmapheresis <= DAY_LIMIT_AFTER_PLASMAPHERESIS){
-            return DAY_LIMIT_AFTER_PLASMAPHERESIS - daysSinceLastPlasmapheresis;
-        } else if (daysSinceLastDonation <= DAY_LIMIT_BETWEEN_DONATIONS) {
-            return DAY_LIMIT_BETWEEN_DONATIONS - daysSinceLastDonation;
-        } else {
+            daysToWait.add(getDaysTillNextYear());
+        }
+        if (daysSinceLastDonation <= DAY_LIMIT_BETWEEN_DONATIONS) {
+            daysToWait.add(DAY_LIMIT_BETWEEN_DONATIONS - daysSinceLastDonation);
+        }
+        if (daysSinceLastPlasmapheresis <= DAY_LIMIT_AFTER_PLASMAPHERESIS){
+            daysToWait.add(DAY_LIMIT_AFTER_PLASMAPHERESIS - daysSinceLastPlasmapheresis);
+        }
+        if (daysToWait.size() == 0) {
             return 0;
         }
+        Collections.sort(daysToWait);
+        return daysToWait.get(daysToWait.size() - 1);
     }
 
     // TODO get the donation counts / year from the user's database
