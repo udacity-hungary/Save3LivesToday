@@ -31,6 +31,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar">
 
+        <!-- TODO replace the image -->
         <ImageView
             android:id="@+id/iv_day_counter_image"
             android:layout_width="match_parent"
@@ -38,16 +39,15 @@
             android:src="@drawable/placeholder_heart"
             tools:ignore="ContentDescription" />
 
-        <!-- TODO remove placeholder number -->
         <TextView
             android:id="@+id/tv_day_counter_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="48"
             android:textSize="@dimen/day_counter_number_text_size"
             android:textStyle="bold"
-            android:visibility="gone" />
+            android:visibility="gone"
+            tools:text="48" />
 
     </FrameLayout>
 
@@ -73,12 +73,46 @@
         android:textColor="@color/colorPrimary"
         app:layout_constraintTop_toBottomOf="@id/fl_day_counter_holder" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_location_list"
+    <ImageView
+        android:id="@+id/content_separator"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/list_divider_shape"
+        app:layout_constraintBottom_toTopOf="@id/fl_location_list_holder"
+        app:layout_constraintTop_toBottomOf="@id/tv_location_list_header" />
+
+    <FrameLayout
+        android:id="@+id/fl_location_list_holder"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_location_list_header"
-        app:layout_constraintVertical_weight="1" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/content_separator"
+        app:layout_constraintVertical_weight="1">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_location_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ProgressBar
+            android:id="@+id/pg_loading_indicator"
+            style="@android:style/Widget.ProgressBar.Inverse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_empty_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/empty_list_message"
+            android:textSize="@dimen/empty_list_view_text_size"
+            android:visibility="gone" />
+
+    </FrameLayout>
 
 </android.support.constraint.ConstraintLayout>

@@ -11,6 +11,7 @@
 
     <!-- LOCATION LIST ITEM ATTRIBUTES -->
     <dimen name="location_list_item_height">72dp</dimen>
+    <dimen name="empty_list_view_text_size">20sp</dimen>
     <!-- END OF LIST ITEM -->
 
     <!-- END OF MAIN ACTIVITY -->

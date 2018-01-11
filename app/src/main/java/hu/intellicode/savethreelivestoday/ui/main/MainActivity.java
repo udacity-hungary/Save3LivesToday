@@ -1,6 +1,10 @@
 package hu.intellicode.savethreelivestoday.ui.main;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
@@ -15,6 +19,7 @@ import java.util.List;
 
 import hu.intellicode.savethreelivestoday.R;
 import hu.intellicode.savethreelivestoday.ui.BaseActivity;
+import hu.intellicode.savethreelivestoday.ui.map.DummyRepository;
 
 public class MainActivity extends BaseActivity {
 
@@ -23,6 +28,9 @@ public class MainActivity extends BaseActivity {
     private static final int DAY_LIMIT_AFTER_PLASMAPHERESIS = 2;
     private static final int DONATION_LIMIT_PER_YEAR_FOR_FEMALES = 4;
     private static final int DONATION_LIMIT_PER_YEAR_FOR_MALES = 5;
+
+    // Fields required by the donation point list
+    DonationPointListAdapter donationPointListAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +46,16 @@ public class MainActivity extends BaseActivity {
 
         contentContainer.addView(view);
 
+        setCounter();
 
+        setDonationPointList();
+    }
+
+    /**
+     * Display if the user can donate blood or not. If not, display how many days she/he has to wait
+     * till she/he will be able to donate.
+     */
+    private void setCounter() {
         TextView dayCounterNumber = findViewById(R.id.tv_day_counter_number);
         TextView dayCounterMessage = findViewById(R.id.tv_day_counter_message);
         ImageView dayCounterImage = findViewById(R.id.iv_day_counter_image);
@@ -107,5 +124,30 @@ public class MainActivity extends BaseActivity {
         int currentYear = currentDate.get(Calendar.YEAR);
         Date nextYearJanFirst = new GregorianCalendar(currentYear + 1, 0, 1).getTime();
         return Math.round((nextYearJanFirst.getTime() - currentTime.getTime()) / 86400000);
+    }
+
+    /**
+     * Display a list of DonationPoints to the user. If she/he clicks on it,
+     * the app navigates she/he to the MapActivity.
+     */
+    private void setDonationPointList() {
+        RecyclerView donationPointList = findViewById(R.id.rv_location_list);
+
+        // TODO replace the dummy repository with a real one
+        donationPointListAdapter = new DonationPointListAdapter(DummyRepository.getAllDonationPoints());
+        donationPointList.setAdapter(donationPointListAdapter);
+
+        LinearLayoutManager layoutManager =
+                new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        donationPointList.setLayoutManager(layoutManager);
+
+        DividerItemDecoration divider = new DividerItemDecoration(this,
+                layoutManager.getOrientation());
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            divider.setDrawable(getResources().getDrawable(R.drawable.list_divider_shape, null));
+        } else {
+            divider.setDrawable(getResources().getDrawable(R.drawable.list_divider_shape));
+        }
+        donationPointList.addItemDecoration(divider);
     }
 }

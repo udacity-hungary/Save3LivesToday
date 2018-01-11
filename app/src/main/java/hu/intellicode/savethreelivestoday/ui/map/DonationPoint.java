@@ -5,7 +5,7 @@ import com.google.android.gms.maps.model.LatLng;
 import java.io.Serializable;
 
 /**
- * Egyszerű POJO a MapActivity-nek szükséges adatokkal
+ * Egyszerű POJO a MapActivity és MainActivity-nek szükséges adatokkal
  */
 public class DonationPoint implements Serializable {
 
@@ -15,6 +15,16 @@ public class DonationPoint implements Serializable {
     private double longitude;
     // esetleg egyéb adatok: szükséges vércsoport, nyitvatartás, satöbbi
 
+    public DonationPoint() {
+    }
+
+    public DonationPoint(String name, String address, double latitude, double longitude) {
+        this.name = name;
+        this.address = address;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
+
     public String getName() {
         return name;
     }
@@ -23,7 +33,7 @@ public class DonationPoint implements Serializable {
         this.name = name;
     }
 
-    String getAddress() {
+    public String getAddress() {
         return address;
     }
 
@@ -47,12 +57,12 @@ public class DonationPoint implements Serializable {
         this.longitude = longitude;
     }
 
-    void setCoordinates(double latitude, double longitude){
+    void setCoordinates(double latitude, double longitude) {
         this.latitude = latitude;
         this.longitude = longitude;
     }
 
-    LatLng getCoordinates(){
-        return new LatLng(latitude,longitude);
+    LatLng getCoordinates() {
+        return new LatLng(latitude, longitude);
     }
 }
