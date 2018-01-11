@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <array name="blood_type_labels">
+        <item>A+</item>
+        <item>AB+</item>
+        <item>B+</item>
+        <item>0+</item>
+        <item>A-</item>
+        <item>AB-</item>
+        <item>B-</item>
+        <item>0-</item>
+    </array>
+
+    <array name="blood_type_values">
+        <item>A+</item>
+        <item>AB+</item>
+        <item>B+</item>
+        <item>0+</item>
+        <item>A-</item>
+        <item>AB-</item>
+        <item>B-</item>
+        <item>0-</item>
+    </array>
+
+    <array name="sex_labels">
+        <item>@string/sex_female_label</item>
+        <item>@string/sex_male_label</item>
+    </array>
+
+    <array name="sex_values">
+        <item>@string/sex_female_value</item>
+        <item>@string/sex_male_value</item>
+    </array>
+
+</resources>

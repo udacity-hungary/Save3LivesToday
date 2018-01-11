@@ -6,4 +6,27 @@
     <string name="drawer_menu_settings">Settings</string>
     <string name="menu_drawer_statistics">Statistics</string>
     <string name="menu_drawer_info">Info</string>
+    <string name="title_activity_user_details">Set user Details</string>
+
+    <!-- Set User Details Strings -->
+    <string name="user_header">User Details:</string>
+    <string name="blood_type">Blood Type</string>
+    <string name="weight">Weight</string>
+    <string name="sex">Sex</string>
+    <string name="age">Age</string>
+
+    <string name="sex_male_label">Male</string>
+    <string name="sex_female_label">Female</string>
+    <string name="sex_male_value">Male</string>
+    <string name="sex_female_value">Female</string>
+
+    <string name="blood_type_a_plus_value">A+</string>
+    <string name="blood_type_b_plus_value">B+</string>
+    <string name="blood_type_ab_plus_value">AB+</string>
+    <string name="blood_type_0_plus_value">0+</string>
+    <string name="blood_type_a_minus_value">A-</string>
+    <string name="blood_type_b_minus_value">B-</string>
+    <string name="blood_type_ab_minus_value">AB-</string>
+    <string name="blood_type_0_minus_value">0-</string>
+
 </resources>
