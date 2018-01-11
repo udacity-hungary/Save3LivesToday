@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="hu.intellicode.savethreelivestoday"
-          xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="hu.intellicode.savethreelivestoday">
 
     <application
         android:allowBackup="true"
@@ -18,7 +18,15 @@
         </activity>
         <activity android:name="hu.intellicode.savethreelivestoday.ui.map.MapActivity"/>
         <activity android:name="hu.intellicode.savethreelivestoday.ui.onboard.OnBoardActivity"/>
-        <activity android:name="hu.intellicode.savethreelivestoday.ui.settings.SettingsActivity"/>
+        <activity
+            android:name="hu.intellicode.savethreelivestoday.ui.settings.SettingsActivity"
+            android:label="@string/action_settings"
+            android:parentActivityName="hu.intellicode.savethreelivestoday.ui.main.MainActivity">
+
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="hu.intellicode.savethreelivestoday.ui.main.MainActivity"/>
+        </activity>
         <activity android:name="hu.intellicode.savethreelivestoday.ui.user.UserActivity"/>
         <activity android:name="hu.intellicode.savethreelivestoday.ui.info.InfoActivity"/>
         <activity android:name="hu.intellicode.savethreelivestoday.ui.statistics.StatisticsActivity"/>

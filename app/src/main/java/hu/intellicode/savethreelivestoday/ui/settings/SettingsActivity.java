@@ -1,27 +1,36 @@
 package hu.intellicode.savethreelivestoday.ui.settings;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import android.support.v4.app.NavUtils;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 
 import hu.intellicode.savethreelivestoday.R;
-import hu.intellicode.savethreelivestoday.ui.BaseActivity;
 
-public class SettingsActivity extends BaseActivity {
+public class SettingsActivity extends  AppCompatActivity {
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_settings);
 
-        View view = getLayoutInflater().inflate(R.layout.activity_settings, contentContainer, false);
-
+        View view = getWindow().getDecorView().getRootView();
         Toolbar toolbar = view.findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
+    }
 
-        contentContainer.addView(view);
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        // When the home button is pressed, take the user back to the VisualizerActivity
+        if (id == android.R.id.home) {
+            NavUtils.navigateUpFromSameTask(this);
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
