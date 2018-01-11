@@ -1,30 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Hello User!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        tools:text="Hello User!" />
-
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
-        android:theme="@style/AppToolbar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</android.support.constraint.ConstraintLayout>
+        android:theme="@style/AppToolbar" />
+
+    <TextView
+        android:id="@+id/tv_UserHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginLeft="58dp"
+        android:layout_marginStart="58dp"
+        android:layout_marginTop="33dp"
+        android:textSize="24sp"
+        android:text="@string/user_header"/>
+
+    <TextView
+        android:id="@+id/tv_BloodType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_UserHeader"
+        android:layout_alignStart="@+id/tv_UserHeader"
+        android:layout_below="@+id/tv_UserHeader"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="32dp" />
+
+    <TextView
+        android:id="@+id/tv_Sex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_BloodType"
+        android:layout_alignStart="@+id/tv_BloodType"
+        android:layout_below="@+id/tv_BloodType"
+        android:layout_marginTop="16dp" />
+
+    <TextView
+        android:id="@+id/tv_Age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_Sex"
+        android:layout_alignStart="@+id/tv_Sex"
+        android:layout_below="@+id/tv_Sex"
+        android:layout_marginTop="16dp" />
+
+    <TextView
+        android:id="@+id/tv_Weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_Age"
+        android:layout_alignStart="@+id/tv_Age"
+        android:layout_below="@+id/tv_Age"
+        android:layout_marginTop="12dp" />
+</RelativeLayout>

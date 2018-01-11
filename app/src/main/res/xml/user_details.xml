@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditTextPreference
+        android:dialogTitle="Weight"
+        android:key="@string/weight"
+        android:summary="Enter your weight in KG"
+        android:title="Weight" />
+
+    <EditTextPreference
+        android:dialogTitle="Age"
+        android:key="@string/age"
+        android:summary="Enter your age"
+        android:title="Age" />
+
+    <ListPreference
+        android:defaultValue=" "
+        android:entries="@array/sex_labels"
+        android:entryValues="@array/sex_values"
+        android:key="@string/sex"
+        android:title="Sex" />
+
+    <ListPreference
+        android:defaultValue=" "
+        android:entries="@array/blood_type_labels"
+        android:entryValues="@array/blood_type_values"
+        android:key="@string/blood_type"
+        android:title="Blood Type" />
+
+</PreferenceScreen>
