@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Save A Life Today</string>
+    <string name="app_name">Save 3 Lives Today</string>
 
     <!-- MENU DRAWER TITLES [CHAR LIMIT = 20] -->
     <string name="menu_drawer_main">Main</string>
