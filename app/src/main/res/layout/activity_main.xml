@@ -46,7 +46,8 @@
             android:layout_gravity="center"
             android:text="48"
             android:textSize="@dimen/day_counter_number_text_size"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:visibility="gone" />
 
     </FrameLayout>
 
@@ -56,7 +57,7 @@
         android:layout_height="@dimen/day_counter_view_size"
         android:gravity="center_vertical"
         android:padding="@dimen/day_counter_message_padding"
-        android:text="@string/day_counter_text"
+        android:text="@string/day_counter_message_waiting"
         android:textSize="@dimen/day_counter_message_text_size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_weight="2"

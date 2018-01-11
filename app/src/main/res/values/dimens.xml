@@ -8,7 +8,13 @@
     <dimen name="day_counter_message_padding">24dp</dimen>
     <dimen name="day_counter_message_text_size">20sp</dimen>
     <dimen name="location_list_header_padding">16dp</dimen>
-    <!-- END -->
+
+    <!-- LOCATION LIST ITEM ATTRIBUTES -->
+    <dimen name="location_list_item_height">72dp</dimen>
+    <!-- END OF LIST ITEM -->
+
+    <!-- END OF MAIN ACTIVITY -->
 
     <dimen name="list_separator_height">4dp</dimen>
+
 </resources>

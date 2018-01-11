@@ -5,12 +5,23 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 import hu.intellicode.savethreelivestoday.R;
 import hu.intellicode.savethreelivestoday.ui.BaseActivity;
 
 public class MainActivity extends BaseActivity {
+
+    private static final int DAY_LIMIT_BETWEEN_DONATIONS = 56;
+    private static final int DAY_LIMIT_AFTER_PLASMAPHERESIS = 2;
+    private static final int DONATION_LIMIT_PER_YEAR_FOR_FEMALES = 4;
+    private static final int DONATION_LIMIT_PER_YEAR_FOR_MALES = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +36,56 @@ public class MainActivity extends BaseActivity {
         }
 
         contentContainer.addView(view);
+
+        TextView dayCounterNumber = findViewById(R.id.tv_day_counter_number);
+        TextView dayCounterMessage = findViewById(R.id.tv_day_counter_message);
+        ImageView dayCounterImage = findViewById(R.id.iv_day_counter_image);
+        //TODO get the count of days since the last donation and plasmapheresis from the user's database
+        // default value should be 0, if the user has never donate, and -1 if he/she cannot donate.
+        int daysSinceLastDonation = 8;
+        int daysSinceLastPlasmapheresis = 100;
+        // TODO if the user cannot donate blood, set daysToWait -1. Else do the following line.
+        int daysToWait = getDaysToWait(daysSinceLastDonation, daysSinceLastPlasmapheresis);
+        // TODO change the iv_day_counter_image based on daysToWait
+        if (daysToWait == 0) {
+            dayCounterMessage.setText(getString(R.string.day_counter_message_positive));
+        } else if (daysToWait > 0) {
+            dayCounterMessage.setText(getString(R.string.day_counter_message_waiting, daysToWait));
+            dayCounterNumber.setText(daysToWait);
+            dayCounterNumber.setVisibility(View.VISIBLE);
+        } else {
+            dayCounterMessage.setText(getString(R.string.day_counter_message_negative));
+        }
+    }
+
+    private int getDaysToWait(int daysSinceLastDonation, int daysSinceLastPlasmapheresis) {
+        if (!isBelowLimitPerYear()) {
+            return getDaysTillNextYear();
+        } else if (daysSinceLastPlasmapheresis <= DAY_LIMIT_AFTER_PLASMAPHERESIS){
+            return DAY_LIMIT_AFTER_PLASMAPHERESIS - daysSinceLastPlasmapheresis;
+        } else if (daysSinceLastDonation <= DAY_LIMIT_BETWEEN_DONATIONS) {
+            return DAY_LIMIT_BETWEEN_DONATIONS - daysSinceLastDonation;
+        } else {
+            return 0;
+        }
+    }
+
+    // TODO get the donation counts / year from the user's database
+    private boolean isBelowLimitPerYear() {
+        return true;
+    }
+
+    /**
+     * I used this method: https://stackoverflow.com/a/24409106
+     *
+     * @return
+     */
+    private int getDaysTillNextYear() {
+        Calendar currentDate = Calendar.getInstance();
+        Date currentTime = currentDate.getTime();
+        int currentYear = currentDate.get(Calendar.YEAR);
+        Date nextYearJanFirst = new GregorianCalendar(currentYear + 1, 0, 1).getTime();
+        return (int) Math.round((nextYearJanFirst.getTime() - currentTime.getTime()) / 86400000d);
     }
 
     @Override
