@@ -1,58 +1,76 @@
 package hu.intellicode.savethreelivestoday.ui.map;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.android.gms.maps.model.LatLng;
 
-import java.io.Serializable;
-
 /**
- * Egyszerű POJO a MapActivity-nek szükséges adatokkal
+ * Simple POJO with the data required by MapActivity
  */
-public class DonationPoint implements Serializable {
+public class DonationPoint implements Parcelable {
 
-    private String name;
-    private String address;
-    private double latitude;
-    private double longitude;
-    // esetleg egyéb adatok: szükséges vércsoport, nyitvatartás, satöbbi
+    private final String name;
+    private final String address;
+    private final double latitude;
+    private final double longitude;
+
+    public DonationPoint(String name, String address, double latitude, double longitude) {
+        this.name = name;
+        this.address = address;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     String getAddress() {
         return address;
     }
 
-    void setAddress(String address) {
-        this.address = address;
-    }
-
     double getLatitude() {
         return latitude;
-    }
-
-    public void setLatitude(double latitude) {
-        this.latitude = latitude;
     }
 
     double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(double longitude) {
-        this.longitude = longitude;
+    LatLng getCoordinates() {
+        return new LatLng(latitude, longitude);
     }
 
-    void setCoordinates(double latitude, double longitude){
-        this.latitude = latitude;
-        this.longitude = longitude;
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
-    LatLng getCoordinates(){
-        return new LatLng(latitude,longitude);
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.name);
+        dest.writeString(this.address);
+        dest.writeDouble(this.latitude);
+        dest.writeDouble(this.longitude);
     }
+
+    protected DonationPoint(Parcel in) {
+        this.name = in.readString();
+        this.address = in.readString();
+        this.latitude = in.readDouble();
+        this.longitude = in.readDouble();
+    }
+
+    public static final Parcelable.Creator<DonationPoint> CREATOR = new Parcelable.Creator<DonationPoint>() {
+        @Override
+        public DonationPoint createFromParcel(Parcel source) {
+            return new DonationPoint(source);
+        }
+
+        @Override
+        public DonationPoint[] newArray(int size) {
+            return new DonationPoint[size];
+        }
+    };
 }
