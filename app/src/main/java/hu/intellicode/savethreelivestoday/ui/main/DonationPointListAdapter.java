@@ -16,17 +16,32 @@ import hu.intellicode.savethreelivestoday.ui.map.DonationPoint;
  * to open MapActivity.
  */
 
-class DonationPointListAdapter extends RecyclerView.Adapter<DonationPointListAdapter.DonationPointHolder> {
+class DonationPointListAdapter
+        extends RecyclerView.Adapter<DonationPointListAdapter.DonationPointHolder> {
+
+    /**
+     * Custom OnClickListener. The Activity will handle the click event,
+     * and the Adapter will send the clicked DonationPoint to it.
+     */
+    public interface OnDonationPointListItemClickListener extends View.OnClickListener {
+
+        void onClick(View v, DonationPoint donationPoint);
+    }
 
     private List<DonationPoint> donationPointList;
+
+    private OnDonationPointListItemClickListener clickListener;
 
     /**
      * The one and only constructor of the class
      *
      * @param donationPointList to display
+     * @param clickListener     which handles the list item clicks
      */
-    public DonationPointListAdapter(List<DonationPoint> donationPointList) {
+    public DonationPointListAdapter(List<DonationPoint> donationPointList,
+                                    OnDonationPointListItemClickListener clickListener) {
         this.donationPointList = donationPointList;
+        this.clickListener = clickListener;
     }
 
     /**
