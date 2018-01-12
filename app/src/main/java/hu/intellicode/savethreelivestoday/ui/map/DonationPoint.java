@@ -26,7 +26,7 @@ public class DonationPoint implements Parcelable {
         return name;
     }
 
-    String getAddress() {
+    public String getAddress() {
         return address;
     }
 
