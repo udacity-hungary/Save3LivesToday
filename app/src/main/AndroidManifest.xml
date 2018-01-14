@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <!-- TODO define the navigation between activities (parent-child-sibling) -->
         <activity android:name="hu.intellicode.savethreelivestoday.ui.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,6 +17,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- TODO set labels to the activities to display them in the AppBar -->
         <activity android:name="hu.intellicode.savethreelivestoday.ui.map.MapActivity" />
         <activity android:name="hu.intellicode.savethreelivestoday.ui.onboard.OnBoardActivity" />
         <activity android:name="hu.intellicode.savethreelivestoday.ui.settings.SettingsActivity" />
