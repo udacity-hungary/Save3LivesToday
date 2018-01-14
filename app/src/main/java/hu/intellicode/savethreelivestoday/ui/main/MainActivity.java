@@ -133,8 +133,8 @@ public class MainActivity extends BaseActivity {
     private void setDonationPointList() {
         RecyclerView donationPointList = findViewById(R.id.rv_location_list);
 
-        // TODO replace the dummy repository with a real one
-        donationPointListAdapter = new DonationPointListAdapter(DummyRepository.getAllDonationPoints());
+        // TODO replace the dummy repository with a real one and replace the null with the listener
+        donationPointListAdapter = new DonationPointListAdapter(DummyRepository.getAllDonationPoints(), null);
         donationPointList.setAdapter(donationPointListAdapter);
 
         LinearLayoutManager layoutManager =
