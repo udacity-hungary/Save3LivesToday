@@ -1,9 +1,21 @@
 <resources>
     <string name="app_name">Save 3 Lives Today</string>
+
+    <!-- MENU DRAWER TITLES [CHAR LIMIT = 20] -->
     <string name="menu_drawer_main">Main</string>
     <string name="menu_drawer_map">Map</string>
     <string name="menu_drawer_user">User</string>
     <string name="drawer_menu_settings">Settings</string>
     <string name="menu_drawer_statistics">Statistics</string>
     <string name="menu_drawer_info">Info</string>
+    <!-- END OF MENU DRAWER -->
+
+    <!-- MAIN ACTIVITY'S TEXTS -->
+    <string name="day_counter_message_positive">Awesome, you can donate blood!</string>
+    <string name="day_counter_message_waiting">%1$d days till the next blood donation</string>
+    <string name="day_counter_message_negative">You cannot donate blood</string>
+    <string name="location_list_header">Blood donation locations where you\'re needed:</string>
+    <string name="empty_list_message">There are no donation points nearby</string>
+    <!-- END OF MAIN ACTIVITY -->
+
 </resources>
