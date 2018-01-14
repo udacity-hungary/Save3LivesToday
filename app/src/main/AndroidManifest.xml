@@ -10,7 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <!-- TODO define the navigation between activities (parent-child-sibling) -->
-        <activity android:name="hu.intellicode.savethreelivestoday.ui.main.MainActivity">
+        <activity android:name="hu.intellicode.savethreelivestoday.ui.main.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,12 +19,18 @@
             </intent-filter>
         </activity>
         <!-- TODO set labels to the activities to display them in the AppBar -->
-        <activity android:name="hu.intellicode.savethreelivestoday.ui.map.MapActivity" />
-        <activity android:name="hu.intellicode.savethreelivestoday.ui.onboard.OnBoardActivity" />
-        <activity android:name="hu.intellicode.savethreelivestoday.ui.settings.SettingsActivity" />
-        <activity android:name="hu.intellicode.savethreelivestoday.ui.user.UserActivity" />
-        <activity android:name="hu.intellicode.savethreelivestoday.ui.info.InfoActivity" />
-        <activity android:name="hu.intellicode.savethreelivestoday.ui.statistics.StatisticsActivity" />
+        <activity android:name="hu.intellicode.savethreelivestoday.ui.map.MapActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name="hu.intellicode.savethreelivestoday.ui.onboard.OnBoardActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name="hu.intellicode.savethreelivestoday.ui.settings.SettingsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name="hu.intellicode.savethreelivestoday.ui.user.UserActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name="hu.intellicode.savethreelivestoday.ui.info.InfoActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name="hu.intellicode.savethreelivestoday.ui.statistics.StatisticsActivity"
+            android:screenOrientation="portrait"/>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
